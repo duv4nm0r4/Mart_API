@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mart service</title>
+</head>
+<body>
+    <h1>Welcome to Mart service</h1>
+    <br>
+    <h2>Enter list of words</h2>
+    <h4>Separate with a comma (,)</h4>
+    <form action="/gui/insert_one" method="post">
+        <input type="text" name="list" >
+        <button type="submit">Save</button>
+    </form>
+    <br>
+    <h2>Analyzed data</h2>
+    <table>
+        <thead>
+            <td>List_words</td>
+            <td>Long_words</td>
+            <td>URL_search</td>
+            <td>Mart_search</td>
+        </thead>
+        <tbody>
+            {%for dbList in lists_db %}
+                <tr>
+                    <td>{{dbList["list_words"]}}</td>
+                    <td>{{dbList["long_words"]}}</td>
+                    <td>{{dbList["URL_search"]}}</td>
+                    <td>{{dbList["mart_search"]}}</td>
+                </tr>
+            {%endfor%}
+        </tbody>
+    </table>    
+</body>
+</html>
